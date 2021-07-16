@@ -68,13 +68,13 @@ test("filterOnMatchingKeyInOtherList with no matches returns empty array", () =>
 
 // filterOnMatchingSidInOtherList tests
 
-test("filterOnMatchingKeyInOtherList matches against a complete list using unique values", () => {
+test("filterOnMatchingSidInOtherList matches against a complete list using unique values", () => {
   expect(A.filterOnMatchingSidInOtherList(
     testArrayObjs,
     testArrayObjs
   )).toEqual(testArrayObjs);
 });
-test("filterOnMatchingKeyInOtherList matches against a partial list using unique values", () => {
+test("filterOnMatchingSidInOtherList matches against a partial list using unique values", () => {
   expect(A.filterOnMatchingSidInOtherList(
     [{sid: 1}, {sid: 3}],
     testArrayObjs

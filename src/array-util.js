@@ -2,7 +2,7 @@ import {converge, curry, filter, find, head, includes, last, map, pair, pipe} fr
 import {isNotNil} from './misc-util';
 
 // takes items from arr whose position is found in selector array of index values
-//const takeSelected = (arr, selector) => selector.map(idx => arr[idx])
+// takeSelected :: ([a], [index]) -> [a]
 export const takeSelected = (arr, selector) => arr.filter(
   (_item, idx) => includes(idx, selector)
 );

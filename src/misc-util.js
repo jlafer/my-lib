@@ -1,19 +1,9 @@
-import {complement, equals, isNil} from 'ramda';
+import {complement, curry, equals, isNil} from 'ramda';
 
-export function delayedPromise(mSec) {
-  return new Promise(
-    function(resolve, _reject) {
-      setTimeout(
-        function() {
-          resolve(mSec);
-        },
-        mSec
-      );
-    }
-  );
-};
-
-export const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+export const wait = curry((ms, input) => {
+  console.log('wait: ms:', ms);
+  return new Promise(resolve => {setTimeout(() => resolve(input), ms)})
+});
 
 export const valueNotObject = value => !valueIsObject(value);
 export const valueIsObject = value =>

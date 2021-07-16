@@ -11,6 +11,9 @@ test("stripReturnAndSplitOnComma returns array from csv-format string", () => {
 });
 
 // trimLeadingZeroes tests
+test("trimLeadingZeroes returns the input for single-digit number greater than zero", () => {
+  expect(S.trimLeadingZeroes('5')).toEqual('5');
+});
 test("trimLeadingZeroes returns the input for number without leading zeroes", () => {
   expect(S.trimLeadingZeroes('12345')).toEqual('12345');
 });

@@ -16,6 +16,8 @@ export const mapValuesOfObject = objMapperFn => R.pipe(
 // object -> integer
 export const objPropsCnt = R.pipe(R.keys, R.length);
 
+// NOTE: the following is not documented bcos I'm not sold on its value
+
 // objToKeyedList :: (string, object) -> [object]
 export const objToKeyedList = (key, obj) => Object.entries(obj).map(
   (([k, prop]) => ({...prop, [key]: k}))

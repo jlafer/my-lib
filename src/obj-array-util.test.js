@@ -10,8 +10,20 @@ const attributes = [
 const scores = [
   {name: 'alice', value: 9},
   {name: 'bob', value: 7},
-  {name: 'chuck', value: 8}
+  {name: 'chuck', value: 8},
+  {name: 'antonio', value: 7}
 ];
+
+// findObjByKeyVal tests
+test("findObjByKeyVal finds only matching object in list", () => {
+  expect(O.findObjByKeyVal('name', 'bob', scores)).toEqual({name: 'bob', value: 7});
+});
+test("findObjByKeyVal finds first of two matching objects in list", () => {
+  expect(O.findObjByKeyVal('value', 7, scores)).toEqual({name: 'bob', value: 7});
+});
+test("findObjByKeyVal returns undefined when no matching objects in list", () => {
+  expect(O.findObjByKeyVal('value', 6, scores)).toEqual(undefined);
+});
 
 // kvListToObj tests
 test("kvListToObj works for list of simple objects", () => {
@@ -39,5 +51,5 @@ test("verifyAllItemsHaveKey where all objects in array contain the key returns t
 
 // sumValuesForKey tests
 test("sumValuesForKey where all objects in array contain the key returns sum", () => {
-  expect(O.sumValuesForKey('value', scores)).toEqual(24);
+  expect(O.sumValuesForKey('value', scores)).toEqual(31);
 });

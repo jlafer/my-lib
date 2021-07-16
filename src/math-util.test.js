@@ -45,6 +45,17 @@ test("zeroPad2 of 2 digits returns number without padding", () => {
   expect(M.zeroPad2(12)).toEqual('12');
 });
 
+// round tests
+test("round to 0 precision returns integer value", () => {
+  expect(M.round(0, 342.5378)).toEqual(343);
+});
+test("round to 2 precision returns float value", () => {
+  expect(M.round(2, 342.5378)).toEqual(342.54);
+});
+test("round of ngative float returns rounded float value", () => {
+  expect(M.round(2, -342.5378)).toEqual(-342.54);
+});
+
 // sumProps tests
 test("sumProps of empty object returns zero", () => {
   expect(M.sumProps({})).toEqual(0);

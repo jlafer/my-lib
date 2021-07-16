@@ -9,7 +9,7 @@ export const verifyAllItemsHaveKey = (objArr, arrName, key) => {
   return true;
 };
 
-// string -> [obj] -> float
+// sumValuesForKey :: string -> [obj] -> float
 export const sumValuesForKey = curry((valueKey, arr) => {
   return pipe(
     map(propOr(0.0, valueKey)),
@@ -39,21 +39,9 @@ export const idValueListToObj = kvListToObj('id', 'value');
 // nameValueListToObj :: [{name: a, value: b}] -> object
 export const nameValueListToObj = kvListToObj('name', 'value');
 
-// findObjByKey :: string -> [object] -> object
-export const findObjByKey = curry( (key, val, arr) => find(propEq(key, val), arr) );
+// findObjByKeyVal :: string -> a -> [object] -> object
+export const findObjByKeyVal = curry( (key, val, arr) => find(propEq(key, val), arr) );
 
-export const findObjBySid = findObjByKey('sid');
-export const findObjByFriendlyName = findObjByKey('friendlyName');
-export const findObjByUniqueName = findObjByKey('uniqueName');
-
-const findMatchingObjByKey = (key, objects, srchObj) => {
-  return objects.find(o => o[key] === srchObj[key]);
-};
-
-export const accumObjsByMatchingOnKey = curry((key, objects, accum, srchObj) => {
-  const obj = findMatchingObjByKey(key, objects, srchObj);
-  if (obj)
-    return [...accum, obj]
-  else
-    return accum;
-});
+export const findObjBySid = findObjByKeyVal('sid');
+export const findObjByFriendlyName = findObjByKeyVal('friendlyName');
+export const findObjByUniqueName = findObjByKeyVal('uniqueName');
