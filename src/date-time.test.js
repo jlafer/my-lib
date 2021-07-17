@@ -44,6 +44,6 @@ test("isoDateToMsec returns correct value for a date in PST", () => {
 // dtToIsoLocal tests
 // NOTE: this is a simplistic function; tests will fail outside of PST!
 test("dtToIsoLocal returns 0 for the start of the epoch", () => {
-  const date1 = new Date('December 17, 2018 00:00:00');
+  const date1 = new Date('December 17, 2018 00:00:00-08:00');
   expect(D.dtToIsoLocal(date1)).toEqual('2018-12-17T00:00:00-08:00');
 });
