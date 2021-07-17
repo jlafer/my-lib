@@ -1,5 +1,5 @@
 import { zeroPad2 } from './math-util';
-import { format } from 'date-fns-tz'
+import { format, utcToZonedTime } from 'date-fns-tz'
 
 export const formatDuration = (duration) => {
   const {months, days, hours, minutes, seconds} = duration;
@@ -14,7 +14,8 @@ export const formatDuration = (duration) => {
 export const isoDateToMsec = (isoDateStr) => new Date(isoDateStr).getTime();
 
 // dtToIsoLocal :: (Date or ISO string) -> ISO string in local TZ
-export const dtToIsoLocal = (dt, timezone) => {
-  const pattern = 'yyyy-MM-dd\'T\'HH:mm:ssxxx'
-  return format(dt, pattern, { timeZone: 'America/Los_Angeles' })
+export const dtToIsoLocal = (dt, timeZone) => {
+  const dtForTZ = utcToZonedTime(dt, timeZone);
+  const pattern = 'yyyy-MM-dd\'T\'HH:mm:ssXXX';
+  return format(dtForTZ, pattern, { timeZone: timeZone });
 };

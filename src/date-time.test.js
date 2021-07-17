@@ -41,16 +41,22 @@ test("isoDateToMsec returns correct value for a date in PST", () => {
   expect(D.isoDateToMsec(date)).toEqual(661420800000);
 });
 
+// test data
+const dateEST = new Date('2018-12-17T08:00:00-05:00');
+console.log(`dateEST = ${D.isoDateToMsec(dateEST)}`)
+const dateMST = new Date('2018-12-17T06:00:00-07:00');
+console.log(`dateMST = ${D.isoDateToMsec(dateMST)}`)
+
 // dtToIsoLocal tests
-test("dtToIsoLocal returns ISO string for the time in PST - different zon", () => {
-  const date1 = new Date('2018-12-17T06:00:00-07:00');
-  expect(D.dtToIsoLocal(date1, 'America/Los_Angeles')).toEqual('2018-12-17T05:00:00-08:00');
+test("dtToIsoLocal returns ISO string for the Denver time in EST", () => {
+  expect(D.dtToIsoLocal(dateMST, 'America/New_York')).toEqual('2018-12-17T08:00:00-05:00');
 });
-test("dtToIsoLocal returns ISO string for the time in PST", () => {
-  const date1 = new Date('2018-12-17T00:00:00-08:00');
-  expect(D.dtToIsoLocal(date1, 'America/Los_Angeles')).toEqual('2018-12-17T00:00:00-08:00');
+test("dtToIsoLocal returns ISO string for the NY time in PST", () => {
+  expect(D.dtToIsoLocal(dateEST, 'America/Los_Angeles')).toEqual('2018-12-17T05:00:00-08:00');
 });
-test("dtToIsoLocal returns ISO string for the time in PDT - same zone", () => {
-  const date1 = new Date('2021-06-17T06:02:00-07:00');
-  expect(D.dtToIsoLocal(date1, 'America/Los_Angeles')).toEqual('2021-06-17T06:02:00-07:00');
+test("dtToIsoLocal returns ISO string for the NY time in EST", () => {
+  expect(D.dtToIsoLocal(dateEST, 'America/New_York')).toEqual('2018-12-17T08:00:00-05:00');
+});
+test("dtToIsoLocal returns ISO string for the NY time in MST", () => {
+  expect(D.dtToIsoLocal(dateEST, 'America/Denver')).toEqual('2018-12-17T06:00:00-07:00');
 });
