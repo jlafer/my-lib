@@ -28,12 +28,16 @@ test("formatDuration with zero mins and secs returns formatted string with paddi
 });
 
 // isoDateToMsec tests
-test("isoDateToMsec returns 0 for the start of the epoch", () => {
+test("isoDateToMsec returns 0 for the start of the epoch in GMT", () => {
   const utcDate1 = new Date(Date.UTC(1970, 0, 1, 0, 0, 0));
   expect(D.isoDateToMsec(utcDate1.toISOString())).toEqual(0);
 });
-test("isoDateToMsec returns correct value for a date", () => {
-  const date = new Date('December 17, 1990 00:00:00');
+test("isoDateToMsec returns correct value for a date in GMT", () => {
+  const date = new Date('December 17, 1990 00:00:00Z');
+  expect(D.isoDateToMsec(date)).toEqual(661392000000);
+});
+test("isoDateToMsec returns correct value for a date in PST", () => {
+  const date = new Date('December 17, 1990 00:00:00-08:00');
   expect(D.isoDateToMsec(date)).toEqual(661420800000);
 });
 
