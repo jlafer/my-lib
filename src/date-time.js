@@ -1,5 +1,5 @@
 import { zeroPad2 } from './math-util';
-import moment from 'moment';
+import { format } from 'date-fns-tz'
 
 export const formatDuration = (duration) => {
   const {months, days, hours, minutes, seconds} = duration;
@@ -13,7 +13,8 @@ export const formatDuration = (duration) => {
 
 export const isoDateToMsec = (isoDateStr) => new Date(isoDateStr).getTime();
 
-//TODO rewrite dtToIsoLocal without using moment
-
 // dtToIsoLocal :: (Date or ISO string) -> ISO string in local TZ
-export const dtToIsoLocal = (dt) => moment(dt).format();
+export const dtToIsoLocal = (dt, timezone) => {
+  const pattern = 'yyyy-MM-dd\'T\'HH:mm:ssxxx'
+  return format(dt, pattern, { timeZone: 'America/Los_Angeles' })
+};

@@ -7,8 +7,9 @@
   "browser": "dist/bundle.umd.js",
   "dependencies": {
     "axios": "^0.21.1",
+    "date-fns": "^2.22.1",
+    "date-fns-tz": "^1.1.4",
     "jlafer-node-util": "^1.0.6",
-    "moment": "^2.29.1",
     "querystring": "^0.2.0",
     "ramda": "^0.26.1",
     "twilio-flex-token-validator": "^1.5.6"

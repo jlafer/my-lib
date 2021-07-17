@@ -306,10 +306,10 @@ isoDateToMsec :: isoString -> integer
 
 ### dtToIsoLocal
 ```
-dtToIsoLocal :: [Date || isoString] -> isoString
+dtToIsoLocal :: ([Date || isoString], timezone) -> isoString
 ```
 ```javascript
-  const date1 = new Date('December 17, 2018 00:00:00');
+  const date1 = new Date('December 17, 2018 00:00:00', 'America/Los_Angeles');
   dtToIsoLocal(date1) //=> '2018-12-17T00:00:00-08:00'
 ```
 
