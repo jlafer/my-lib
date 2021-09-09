@@ -5,7 +5,6 @@ import {
   matchAndMapLists, mapAllToPromise
 } from './array-util';
 import {formatDuration, isoDateToMsec, dtToIsoLocal} from './date-time';
-import {copyTextFile, checkDirExists} from './fs-util';
 import {varToStr} from './log-debug';
 import {
   Sequence, pad, zeroPad2, round, roundToInt, roundToTenth, sumProps, getKeyOfMaxProp
@@ -25,7 +24,7 @@ import {executeShellCmd} from './os-util';
 import {
   makePathList, stripReturnAndSplitOnComma, trimLeadingZeroes
 } from './string-util';
-import {getSyncToken} from './sync-client';
+//import {getSyncToken} from './sync-client';
 import {getSyncDocByName} from './sync-server';
 
 export {
@@ -34,7 +33,6 @@ export {
   filterOnMatchingSidInOtherList, filterOnMatchingUniqueNameInOtherList,
   matchAndMapLists, mapAllToPromise,
   formatDuration, isoDateToMsec, dtToIsoLocal,
-  copyTextFile, checkDirExists,
   varToStr,
   Sequence, pad, zeroPad2, round, roundToInt, roundToTenth, sumProps, getKeyOfMaxProp,
   wait, valueIsObject, valueNotObject, valueIsArray, isNotNil, isNotEquals,
@@ -44,6 +42,5 @@ export {
   mapKeysOfObject, mapValuesOfObject, objPropsCnt, objToKeyedList,
   executeShellCmd,
   makePathList, stripReturnAndSplitOnComma, trimLeadingZeroes,
-  getSyncToken,
   getSyncDocByName
 };

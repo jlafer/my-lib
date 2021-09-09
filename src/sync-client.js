@@ -17,6 +17,8 @@
   
   An example function can be found at https://github.com:jlafer/flex-plugin-template/plugin-template-fns/get-sync-token.js.
 */
+// TODO callApiFormEncoded should be in this pkg
+/*
 import {callApiFormEncoded} from 'jlafer-flex-util';
 
 export const getSyncToken = (url, manager, identity) => {
@@ -25,4 +27,4 @@ export const getSyncToken = (url, manager, identity) => {
   
   const data = {Identity: identity, Token: token};
   return callApiFormEncoded(url, 'post', data);
-};
+}; */
