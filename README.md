@@ -309,8 +309,9 @@ isoDateToMsec :: isoString -> integer
 dtToIsoLocal :: ([Date || isoString], timezone) -> isoString
 ```
 ```javascript
-  const date1 = new Date('December 17, 2018 00:00:00', 'America/Los_Angeles');
-  dtToIsoLocal(date1) //=> '2018-12-17T00:00:00-08:00'
+  // format a date, defined in EST, as an ISO-8601-formatted date-time string in PST 
+  const date1 = new Date('December 17, 2018 08:00:00-05:00', 'America/Los_Angeles');
+  dtToIsoLocal(date1) //=> '2018-12-17T05:00:00-08:00'
 ```
 
 ## Filesystem Functions

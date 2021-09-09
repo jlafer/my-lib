@@ -60,3 +60,7 @@ test("dtToIsoLocal returns ISO string for the NY time in EST", () => {
 test("dtToIsoLocal returns ISO string for the NY time in MST", () => {
   expect(D.dtToIsoLocal(dateEST, 'America/Denver')).toEqual('2018-12-17T06:00:00-07:00');
 });
+
+const now = new Date();
+console.log(`now in PST = ${D.dtToIsoLocal(now, 'America/Los_Angeles')}`);
+console.log(`now in MST = ${D.dtToIsoLocal(now, 'America/Denver')}`);
