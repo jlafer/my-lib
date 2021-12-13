@@ -76,7 +76,21 @@ This function will return the first object with the `friendlyName` value matched
 ```
 findObjByUniqueName :: string -> [object] -> object
 ```
-This function will return the first object with the `uniqueName` value matched by the specified string value from the object array argument. This function is a partial application of `findObjByKeyVal`.
+This curried function will return the first object with the `uniqueName` value matched by the specified string value from the object array argument. This function is a partial application of `findObjByKeyVal`.
+
+### replaceObjByKey
+```
+replaceObjByKey :: string -> [object] -> object -> [object]
+```
+This curried function will return a copy of the the object array argument, replacing the first object that matches on the key with the object argument.
+```javascript
+const scores = [
+  {name: 'alice', value: 9},
+  {name: 'bob', value: 7}
+];
+replaceObjByKey('name', scores, {name: 'bob', value: 12);
+//=> [{name: 'alice', value: 9}, {name: 'bob', value: 12}]
+```
 
 ### kvListToObj
 ```

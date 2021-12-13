@@ -1,6 +1,20 @@
 import {add, all, curry, find, fromPairs, has, map, pick, pipe, propEq, propOr, props, reduce} from 'ramda';
 import {valueIsArray} from './misc-util';
 
+// findObjByKeyVal :: string -> a -> [object] -> object
+export const findObjByKeyVal = curry( (key, val, arr) =>
+  find(propEq(key, val), arr)
+);
+
+export const findObjBySid = findObjByKeyVal('sid');
+export const findObjByFriendlyName = findObjByKeyVal('friendlyName');
+export const findObjByUniqueName = findObjByKeyVal('uniqueName');
+
+// replaceObjByKey :: string -> [object] -> object -> [object]
+export const replaceObjByKey = curry((key, arr, item) =>
+  arr.map(obj => (obj[key] === item[key]) ? item : obj)
+);
+
 export const verifyAllItemsHaveKey = (objArr, arrName, key) => {
   if (! valueIsArray(objArr))
     throw new Error(`ERROR: ${arrName} does not contain an array of objects`)
@@ -38,10 +52,3 @@ export const keyedListToObj = (key, arr) => arr.reduce(objToProps(key), {});
 export const idValueListToObj = kvListToObj('id', 'value');
 // nameValueListToObj :: [{name: a, value: b}] -> object
 export const nameValueListToObj = kvListToObj('name', 'value');
-
-// findObjByKeyVal :: string -> a -> [object] -> object
-export const findObjByKeyVal = curry( (key, val, arr) => find(propEq(key, val), arr) );
-
-export const findObjBySid = findObjByKeyVal('sid');
-export const findObjByFriendlyName = findObjByKeyVal('friendlyName');
-export const findObjByUniqueName = findObjByKeyVal('uniqueName');
