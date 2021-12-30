@@ -13,9 +13,10 @@ import {
   wait, valueIsObject, valueNotObject, valueIsArray, isNotNil, isNotEquals
 } from './misc-util';
 import {
-  findObjByKeyVal, findObjBySid, findObjByFriendlyName, findObjByUniqueName, replaceObjByKey,
+  findMatchingObjByKey, findObjByKeyVal,
+  findObjBySid, findObjByFriendlyName, findObjByUniqueName, replaceObjByKey,
   verifyAllItemsHaveKey, sumValuesForKey, pickFromAll, kvListToObj, keyedListToObj,
-  idValueListToObj, nameValueListToObj, 
+  idValueListToObj, nameValueListToObj
 } from './obj-array-util';
 import {
   mapKeysOfObject, mapValuesOfObject, objPropsCnt, objToKeyedList
@@ -37,7 +38,7 @@ export {
   Sequence, pad, zeroPad2, round, roundToInt, roundToTenth, sumProps, getKeyOfMaxProp,
   wait, valueIsObject, valueNotObject, valueIsArray, isNotNil, isNotEquals,
   verifyAllItemsHaveKey, sumValuesForKey, pickFromAll, kvListToObj, keyedListToObj,
-  idValueListToObj, nameValueListToObj, findObjByKeyVal, findObjBySid,
+  idValueListToObj, nameValueListToObj, findMatchingObjByKey, findObjByKeyVal, findObjBySid,
   findObjByFriendlyName, findObjByUniqueName, replaceObjByKey,
   mapKeysOfObject, mapValuesOfObject, objPropsCnt, objToKeyedList,
   executeShellCmd,

@@ -78,6 +78,20 @@ findObjByUniqueName :: string -> [object] -> object
 ```
 This curried function will return the first object with the `uniqueName` value matched by the specified string value from the object array argument. This function is a partial application of `findObjByKeyVal`.
 
+### findMatchingObjByKey
+```
+findMatchingObjByKey :: string -> [object] -> object -> object
+```
+This function will return the first item from the object array argument that matches the object argument on the value of the property named by the string argument.
+```javascript
+const scores = [
+  {name: 'alice', value: 9},
+  {name: 'bob', value: 7},
+  {name: 'chuck', value: 8}
+];
+findMatchingObjByKey('name', scores, {name: 'bob', value: 42}); //=> {name: 'bob', value: 7}
+```
+
 ### replaceObjByKey
 ```
 replaceObjByKey :: string -> [object] -> object -> [object]

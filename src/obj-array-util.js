@@ -10,6 +10,11 @@ export const findObjBySid = findObjByKeyVal('sid');
 export const findObjByFriendlyName = findObjByKeyVal('friendlyName');
 export const findObjByUniqueName = findObjByKeyVal('uniqueName');
 
+// findMatchingObjByKey :: string -> [object] -> object -> object
+export const findMatchingObjByKey = (key, arr, srchObj) => {
+  return arr.find(o => o[key] === srchObj[key]);
+};
+
 // replaceObjByKey :: string -> [object] -> object -> [object]
 export const replaceObjByKey = curry((key, arr, item) =>
   arr.map(obj => (obj[key] === item[key]) ? item : obj)

@@ -14,6 +14,12 @@ const scores = [
   {name: 'antonio', value: 7}
 ];
 
+// findMatchingObjByKey tests
+test("findMatchingObjByKey finds only matching object in list", () => {
+  expect(O.findMatchingObjByKey('name', scores, {name: 'bob', value: 42, foo: 'bar'}))
+    .toEqual({name: 'bob', value: 7});
+});
+
 // findObjByKeyVal tests
 test("findObjByKeyVal finds only matching object in list", () => {
   expect(O.findObjByKeyVal('name', 'bob', scores)).toEqual({name: 'bob', value: 7});
