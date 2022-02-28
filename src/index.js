@@ -21,7 +21,6 @@ import {
 import {
   mapKeysOfObject, mapValuesOfObject, objPropsCnt, objToKeyedList
 } from './obj-util';
-import {executeShellCmd} from './os-util';
 import {
   makePathList, stripReturnAndSplitOnComma, trimLeadingZeroes
 } from './string-util';
@@ -41,7 +40,6 @@ export {
   idValueListToObj, nameValueListToObj, findMatchingObjByKey, findObjByKeyVal, findObjBySid,
   findObjByFriendlyName, findObjByUniqueName, replaceObjByKey,
   mapKeysOfObject, mapValuesOfObject, objPropsCnt, objToKeyedList,
-  executeShellCmd,
   makePathList, stripReturnAndSplitOnComma, trimLeadingZeroes,
   getSyncDocByName
 };

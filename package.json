@@ -1,13 +1,12 @@
 {
   "name": "jlafer-lib",
   "description": "My library of helper functions",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
   "browser": "dist/bundle.umd.js",
   "dependencies": {
     "axios": "^0.21.1",
-    "child_process": "^1.0.2",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^1.1.4",
     "querystring": "^0.2.0",
