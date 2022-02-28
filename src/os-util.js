@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+import { exec } from 'child_process';
 
 function executeShellCmd(cmd) {
   return new Promise(function(resolve, _reject) {
