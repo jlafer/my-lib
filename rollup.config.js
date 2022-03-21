@@ -36,6 +36,7 @@ export default [
 		],
 		plugins: [
 			resolve(), // so Rollup can find node_modules dependencies
+			commonjs(), // so Rollup can convert dependencies to ES modules
 			babel({
 				exclude: ['node_modules/**']
 			})
